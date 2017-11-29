@@ -3,7 +3,8 @@ import sqlite3
 dBase = "database.db"
 conn = sqlite3.connect("database.db")
 
-result1 = conn.execute("SELECT mov.Budget, mov.Nconst, history.Nconst, mov.User_Rating, mov.Tconst, history.Tconst, history.User_Rating from (SELECT M.User_Rating, H.Nconst, M.Tconst, M.Budget FROM  MOVIE as M, HAS_DIRECTORS as H WHERE M.Tconst = H.Tconst and H.Nconst NOT LIKE \"\\N\") as  mov JOIN (SELECT H.Nconst, M.Tconst, M.User_Rating FROM  MOVIE as M, HAS_DIRECTORS as H WHERE M.Tconst = H.Tconst and H.Nconst NOT LIKE \"\\N\") as history on history.Nconst = mov.Nconst ORDER BY mov.Nconst;")
+result1 = conn.execute(
+    "SELECT mov.Budget, mov.Nconst, history.Nconst, mov.User_Rating, mov.Tconst, history.Tconst, history.User_Rating from (SELECT M.User_Rating, H.Nconst, M.Tconst, M.Budget FROM  MOVIE as M, DIRECTED_BY as H WHERE M.Tconst = H.Tconst and H.Nconst NOT LIKE \"\\N\") as  mov JOIN (SELECT H.Nconst, M.Tconst, M.User_Rating FROM  MOVIE as M, DIRECTED_BY as H WHERE M.Tconst = H.Tconst and H.Nconst NOT LIKE \"\\N\") as history on history.Nconst = mov.Nconst WHERE move.Budget IS NOT NULL ORDER BY mov.Nconst;")
 
 with open('question1.csv', 'w') as csvfile:
     write = csv.writer(csvfile, delimiter = ' ', quotechar = '|', quoting = csv.QUOTE_MINIMAL)
@@ -11,7 +12,7 @@ with open('question1.csv', 'w') as csvfile:
         i = list(i)
         print(i)
         write.writerow(i)
-
+'''
 result2 = conn.execute("SELECT M.Act_1_Likes, M.Act_2_Likes, M.Act_3_Likes, M.Face_number, M.Revenue FROM MOVIE as M WHERE Act_3_Likes and Act_2_Likes and Act_1_Likes and Revenue and Face_number is not null;")
 
 with open('question2.csv', 'w') as csvfile:
@@ -45,4 +46,5 @@ with open('question5.csv', 'w') as csvfile:
         i = list(i)
         print(i)
         write.writerow(i)
+'''
 conn.close()
