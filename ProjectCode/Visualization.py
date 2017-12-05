@@ -2,12 +2,15 @@ import matplotlib.pyplot as plt
 import scipy.stats as st
 import numpy as np
 class Vis():
+    #Accepts the x and y values, and the axis and title labels. 
     def __init__(self, x, y, xlabel = 'Null', ylabel = 'Null', title = 'Null'):
         self.x = x
         self.y = y
         self.xlabel = xlabel
         self.ylabel = ylabel
         self.title = title
+    #Plots a scatter plot of the data, size of the point is optional.
+    # Plots a linear regression line fit to the data overlayed upon the scatter plot
     def plot(self, size = (np.pi*3)):
         self.x = np.array(self.x)
         self.y = np.array(self.y)

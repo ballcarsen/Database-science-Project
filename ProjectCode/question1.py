@@ -53,7 +53,7 @@ def run():
             count = 0
             compare = id
     #Plots the budget of each film vs the average rating of the directors films
-    vis1 = Visualization.Vis(Budget, directorPopularity)
+    vis1 = Visualization.Vis(Budget, directorPopularity, 'Budget', 'Average Rating of Films by Director', 'Budget in Correlation to the Average Rating of Films by the Driector')
     vis1.plot()
     #Calculates the correleation coeffection of the budget of each film vs the average rating of the directors films
     calc = Calculations.Calc(Budget, directorPopularity)

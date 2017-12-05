@@ -77,4 +77,4 @@ def run():
     res = np.array(doubleResults)
     np.savetxt('q2Results.txt', res, fmt='%1.3f')
     #Graphs the normal distributions for the 11 different neural networks for 30 test/trains
-    stat.normDist(mean,var)
+    C1.normDist(mean,var)

@@ -40,4 +40,3 @@ def run():
     #Calcualates correlation coefficient of the facebook likes and rev/budg
     c1 = Calculations.Calc(avgLikes, rev_budg)
     c1.correlation()
-
