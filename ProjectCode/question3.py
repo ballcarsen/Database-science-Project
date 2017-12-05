@@ -2,7 +2,6 @@
 #imports
 import csv
 from ProjectCode.network import  Network
-import ProjectCode.statistics as stat
 from ProjectCode.Visualization import Vis
 import ProjectCode.Calculations as calc
 import numpy as np
@@ -47,6 +46,7 @@ def run():
     v2 = Vis(criticVis, revVis, 'Rating', 'Revenue', 'Critic Rating VS Revenue')
     v1.plot()
     v2.plot()
+    C1 = calc.Calc(fan, rev)
     #Nueral network parameters, number of nodes in the hidden layers and learning rate
     params = [[20, .5], [100, .5], [1000, .5], [20, .05], [100, .05], [1000, .05], [20, .005], [100, .005], [1000, .5], [1000, .05], [1000, .005]]
     #Results from a certain set of parameters
@@ -71,7 +71,7 @@ def run():
     #Saves results as a txt file
     np.savetxt('fanResults.txt', res, fmt='%1.3f')
     #Graphs normal distributions of the results from the networks for fan reviews
-    calc.normDist(fanMean, fanVar)
+    C1.normDist(fanMean, fanVar)
 
     #Mean error for the nueral networks trained on critic reviews
     criticMean = []
@@ -94,7 +94,7 @@ def run():
     res = np.array(doubleResults)
     np.savetxt('criticResults.txt', res, fmt='%1.3f')
     #Graphs normal distributions of the results from the networks for critic reviews
-    calc.normDist(criticMean, criticVar)
+    C1.normDist(criticMean, criticVar)
 
     print(fanMean)
     print(criticMean)

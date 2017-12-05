@@ -3,7 +3,6 @@
 import numpy as np
 from ProjectCode.Visualization import Vis
 from ProjectCode.Calculations import Calc
-import statistics as stat
 import csv
 from ProjectCode.network import Network
 #data file

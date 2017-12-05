@@ -14,7 +14,7 @@ class Calc:
         print(st.spearmanr(self.x,self.y))
         print(st.pearsonr(self.x, self.y))
     #Graphs the normal distributions for each mean and variance passed
-    def normDist(mean, var):
+    def normDist(self, mean, var):
         for mean, var in zip(mean, var):
             x1 = np.linspace(mean - 3 * math.sqrt(var), mean + 3 * math.sqrt(var), 100)
             plt.plot(x1, mlab.normpdf(x1, mean, math.sqrt(var)))
