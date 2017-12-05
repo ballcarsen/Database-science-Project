@@ -59,7 +59,7 @@ def run():
     #Test train 11 different neural nets, 30 times for fan reviews
     for i in range(len(params)):
         for k in range(30):
-            net = Network(fan,rev, params[i][1], 1)
+            net = Network(fan,rev, params[i][1], 10000)
             net.preProcess()
             results.append(net.backProp(params[i][0]))
         fanMean.append(np.mean(results))

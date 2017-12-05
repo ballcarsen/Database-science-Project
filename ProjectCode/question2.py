@@ -66,7 +66,7 @@ def run():
     #Trains and tests 11 different neural networks, 30 times
     for i in range(len(params)):
         for k in range(30):
-            net = Network(x,y, params[i][1], 10)
+            net = Network(x,y, params[i][1], 10000)
             net.preProcess()
             results.append(net.backProp(params[i][0]))
         mean.append(np.mean(results))
