@@ -1,8 +1,10 @@
+#Performs the visualization of our data
+#imports
 import matplotlib.pyplot as plt
 import scipy.stats as st
 import numpy as np
 class Vis():
-    #Accepts the x and y values, and the axis and title labels. 
+    #Accepts the x and y values, and the axis and title labels.
     def __init__(self, x, y, xlabel = 'Null', ylabel = 'Null', title = 'Null'):
         self.x = x
         self.y = y

@@ -1,3 +1,4 @@
+#performs the desired calculations for our data
 import scipy.stats as st
 import numpy as np
 import math

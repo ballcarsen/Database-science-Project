@@ -1,3 +1,4 @@
+#Script for question 2
 #Imports
 import numpy as np
 from ProjectCode.Visualization import Vis
